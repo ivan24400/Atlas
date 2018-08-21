@@ -19,13 +19,14 @@ public class StudentProfileActivity extends AppCompatActivity {
     private ViewPager viewPager;
 
     static long studentId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studentprofile);
 
-        studentId = getIntent().getLongExtra(StudentListActivity.STUDENT_ID,0);
-        Log.e("StudentProfileActivity",Long.toString(studentId));
+        studentId = getIntent().getLongExtra(StudentListActivity.STUDENT_ID, 0);
+        Log.e("StudentProfileActivity", Long.toString(studentId));
 
         tabLayout = findViewById(R.id.sp_tabs);
         viewPager = findViewById(R.id.sp_viewpager);
@@ -33,7 +34,12 @@ public class StudentProfileActivity extends AppCompatActivity {
 
         tabLayout.setVisibility(View.VISIBLE);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                tabLayout.setupWithViewPager(viewPager);
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {

@@ -43,7 +43,6 @@ public class StudentsListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        recyclerView = getActivity().findViewById(R.id.s_recycler_view);
         progressBar = getActivity().findViewById(R.id.progressBar_cyclic);
         progressBar.setVisibility(View.VISIBLE);
 
@@ -67,6 +66,7 @@ public class StudentsListFragment extends Fragment {
 
     private void generateStudentsDataList(List<Student> list){
         StudentsListAdapter adapter = new StudentsListAdapter(getActivity(), recyclerView, list);
+        recyclerView = getActivity().findViewById(R.id.s_recycler_view);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setEmptyView(getActivity().findViewById(R.id.st_empty_view));

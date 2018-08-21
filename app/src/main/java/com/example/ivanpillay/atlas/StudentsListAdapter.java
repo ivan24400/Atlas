@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,12 +101,16 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
 
         @Override
         public void onClick(View v) {
-            int itemPosition = recyclerView.getChildLayoutPosition(v);
-            Student item = listItems.get(itemPosition);
-            Intent intent = new Intent(context,StudentProfileActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(StudentsListFragment.STUDENT_ID,item.getId());
-            context.startActivity(intent);
+            if(recyclerView != null) {
+                int itemPosition = recyclerView.getChildLayoutPosition(v);
+                Student item = listItems.get(itemPosition);
+                Intent intent = new Intent(context, StudentProfileActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(StudentsListFragment.STUDENT_ID, item.getId());
+                context.startActivity(intent);
+            }else{
+                Log.e("StudentsListAdpater","recycler view is empty");
+            }
         }
     }
 }
