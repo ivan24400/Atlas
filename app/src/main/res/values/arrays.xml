@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_list_preference">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3    </item>
+    </string-array>
+    <array name="entryvalues_list_preference">
+        <item>Value of item 1</item>
+        <item>Value of item 2</item>
+        <item>Value of item 3</item>
+    </array>
+</resources>

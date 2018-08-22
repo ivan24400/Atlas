@@ -18,6 +18,7 @@ public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
+    private BottomNavigationView bottomNavigationView;
 
     //  private static Button students, institute, schedule, documents;
 
@@ -38,7 +39,7 @@ public class UserActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.u_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.u_nav_bottom_view);
+        bottomNavigationView = findViewById(R.id.u_nav_bottom_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -78,7 +79,7 @@ public class UserActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.u_drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.u_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -95,12 +96,8 @@ public class UserActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.nav_menu) {
             return true;
         }

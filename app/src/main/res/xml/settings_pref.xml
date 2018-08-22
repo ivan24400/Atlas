@@ -1,0 +1,71 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Settings">
+    <PreferenceCategory
+        android:key="pref_key_acc"
+        android:title="Account">
+
+        <PreferenceScreen
+            android:key="pref_key_acc_ss"
+            android:title="Username">
+
+            <EditTextPreference
+                android:dialogTitle="Username"
+                android:key="pref_key_acc_ss_user"
+                android:summary="Set your username"
+                android:title="Username" />
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_inst"
+        android:title="Institute News letter">
+        <SwitchPreference
+            android:key="pref_key_inst_check"
+            android:summary="Check to receive news letter"
+            android:title="Receive Newsletter" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pref_key_security"
+        android:title="Security">
+
+        <PreferenceScreen
+            android:key="pref_key_security_ss"
+            android:title="Setup fingerprint">
+
+            <SwitchPreference
+                android:key="pref_key_security_fp"
+                android:title="Fingerprint" />
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+
+
+    <CheckBoxPreference
+        android:key="pref_key_login_once1"
+        android:title="Login automatically 1"/>
+
+    <CheckBoxPreference
+        android:key="pref_key_login_once2"
+        android:title="Login automatically 2"/>
+
+    <PreferenceCategory
+        android:key="pref_key_uid"
+        android:title="Unique ID">
+        <Preference
+            android:key="pref_key_uid"
+            android:layout="@layout/settings_uid" />
+    </PreferenceCategory>
+
+
+    <CheckBoxPreference
+        android:key="pref_key_login_once3"
+        android:title="Login automatically 3"/>
+
+    <CheckBoxPreference
+        android:key="pref_key_login_once4"
+        android:title="Login automatically 4"/>
+</PreferenceScreen>

@@ -65,11 +65,14 @@ public class StudentsListFragment extends Fragment {
     }
 
     private void generateStudentsDataList(List<Student> list){
-        StudentsListAdapter adapter = new StudentsListAdapter(getActivity(), recyclerView, list);
-        recyclerView = getActivity().findViewById(R.id.s_recycler_view);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setEmptyView(getActivity().findViewById(R.id.st_empty_view));
+        if(getActivity() != null) {
+            StudentsListAdapter adapter = new StudentsListAdapter(getActivity(), recyclerView, list);
+            Log.e("studentsListFragment", getActivity().toString());
+            recyclerView = getActivity().findViewById(R.id.s_recycler_view);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setEmptyView(getActivity().findViewById(R.id.st_empty_view));
+        }
     }
 
     public List<Student> getStudentsData() {
