@@ -13,7 +13,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentProfileActivity extends AppCompatActivity {
+public class StudentProfile extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -25,8 +25,8 @@ public class StudentProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studentprofile);
 
-        studentId = getIntent().getLongExtra(StudentListActivity.STUDENT_ID, 0);
-        Log.e("StudentProfileActivity", Long.toString(studentId));
+        studentId = getIntent().getLongExtra(StudentList.STUDENT_ID, 0);
+        Log.e("StudentProfile", Long.toString(studentId));
 
         tabLayout = findViewById(R.id.sp_tabs);
         viewPager = findViewById(R.id.sp_viewpager);
@@ -44,9 +44,9 @@ public class StudentProfileActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SpPersonalFragment(), "Personal");
-        adapter.addFragment(new SpGuardianFragment(), "Guardian");
-        adapter.addFragment(new SpCoursesFragment(), "Courses");
+        adapter.addFragment(new SpPersonal(), "Personal");
+        adapter.addFragment(new SpGuardian(), "Guardian");
+        adapter.addFragment(new SpCourses(), "Courses");
 
         viewPager.setAdapter(adapter);
     }

@@ -1,22 +1,19 @@
 package com.example.ivanpillay.atlas;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
-import android.view.View;
 
-public class SettingsFragment extends PreferenceFragmentCompat implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
+public class Settings extends PreferenceFragmentCompat implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
 
-    public static SettingsFragment newInstance() {
-        SettingsFragment f = new SettingsFragment();
+    public static Settings newInstance() {
+        Settings f = new Settings();
         return f;
     }
 
-    public SettingsFragment() {
+    public Settings() {
     }
 
     @Override

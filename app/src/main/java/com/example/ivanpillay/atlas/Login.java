@@ -37,13 +37,18 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-
+    private static final String TAG = "Login";
+    /**
+     * A dummy authentication store containing known user_content names and passwords.
+     */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "ivan@lemon.com:qwertyuio", "i@one.io:qwertyuio"
     };
-
+    /**
+     * Keep track of the login task to ensure we can cancel it if requested.
+     */
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -172,6 +177,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
         } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
@@ -214,12 +221,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
+                new ArrayAdapter<>(Login.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
     }
 
+
+    private interface ProfileQuery {
+        String[] PROJECTION = {
+                ContactsContract.CommonDataKinds.Email.ADDRESS,
+                ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
+        };
+
+        int ADDRESS = 0;
+        int IS_PRIMARY = 1;
+    }
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
@@ -247,10 +264,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
+
 // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
             }
+            Log.d(TAG,"no match");
             return false;
         }
 
@@ -260,10 +279,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent user = new Intent(LoginActivity.this,UserActivity.class);
+                Log.d(TAG,"cred match success");
+                Intent user = new Intent(Login.this,User.class);
                 startActivity(user);
             } else {
-                Toast.makeText(LoginActivity.this,"Invalid username or password !", Toast.LENGTH_SHORT).show();
+                Log.d(TAG,"cred match fail");
+
+                Toast.makeText(Login.this,"Invalid username or password !", Toast.LENGTH_SHORT).show();
             }
         }
 

@@ -1,6 +1,5 @@
 package com.example.ivanpillay.atlas;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,7 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class AppbarActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Appbar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -51,20 +50,20 @@ public class AppbarActivity extends AppCompatActivity implements NavigationView.
         int id = item.getItemId();
         boolean dialogs = false;
         if (id == R.id.user_nav_logout) {
-            Fragment frag = fragmentManager.findFragmentByTag(LogoutDialogFragment.TAG);
+            Fragment frag = fragmentManager.findFragmentByTag(LogoutDialog.TAG);
             if (frag != null) {
                 fragmentManager.beginTransaction().remove(frag).commit();
             }
-            LogoutDialogFragment logoutFragment = LogoutDialogFragment.newInstance();
-            logoutFragment.show(fragmentManager, LogoutDialogFragment.TAG);
+            LogoutDialog logoutFragment = LogoutDialog.newInstance();
+            logoutFragment.show(fragmentManager, LogoutDialog.TAG);
             dialogs = true;
         } else if (id == R.id.user_nav_about) {
-            Fragment frag = fragmentManager.findFragmentByTag(AboutDialogFragment.TAG);
+            Fragment frag = fragmentManager.findFragmentByTag(AboutDialog.TAG);
             if (frag != null) {
                 fragmentManager.beginTransaction().remove(frag).commit();
             }
-            AboutDialogFragment aboutFragment = AboutDialogFragment.newInstance();
-            aboutFragment.show(fragmentManager, AboutDialogFragment.TAG);
+            AboutDialog aboutFragment = AboutDialog.newInstance();
+            aboutFragment.show(fragmentManager, AboutDialog.TAG);
             dialogs = true;
         }
 
@@ -73,13 +72,13 @@ public class AppbarActivity extends AppCompatActivity implements NavigationView.
             Fragment fragment = null;
 
             if (id == R.id.user_nav_notification) {
-                fragmentClass = NotificationFragment.class;
+                fragmentClass = Notification.class;
             } else if (id == R.id.user_nav_account) {
-                fragmentClass = UserAccountFragment.class;
+                fragmentClass = UserAccount.class;
             } else if (id == R.id.user_nav_settings) {
-                fragmentClass = SettingsFragment.class;
+                fragmentClass = Settings.class;
             } else if (id == R.id.user_nav_contactus) {
-                fragmentClass = ContactUsFragment.class;
+                fragmentClass = ContactUs.class;
             }
 
             if (fragmentClass != null) {

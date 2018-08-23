@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/fragment_student_list"
-        android:name="com.example.ivanpillay.atlas.StudentsListFragment"
+        android:name="com.example.ivanpillay.atlas.StudentsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="9" />

@@ -9,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -22,12 +20,12 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SpPersonalFragment.OnFragmentInteractionListener} interface
+ * {@link SpPersonal.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SpPersonalFragment#newInstance} factory method to
+ * Use the {@link SpPersonal#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SpPersonalFragment extends Fragment {
+public class SpPersonal extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +39,7 @@ public class SpPersonalFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SpPersonalFragment() {
+    public SpPersonal() {
         // Required empty public constructor
     }
 
@@ -51,11 +49,11 @@ public class SpPersonalFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SpPersonalFragment.
+     * @return A new instance of fragment SpPersonal.
      */
     // TODO: Rename and change types and number of parameters
-    public static SpPersonalFragment newInstance(String param1, String param2) {
-        SpPersonalFragment fragment = new SpPersonalFragment();
+    public static SpPersonal newInstance(String param1, String param2) {
+        SpPersonal fragment = new SpPersonal();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,7 +73,7 @@ public class SpPersonalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("SpPersonalFragment","inflating:"+R.layout.sp_personal +"\t"+container.toString());
+        Log.e("SpPersonal","inflating:"+R.layout.sp_personal +"\t"+container.toString());
         final View view = inflater.inflate(R.layout.sp_personal, container, false);
         btn_popup = view.findViewById(R.id.sp_p_btn);
         btn_popup.setOnClickListener(new View.OnClickListener(){
@@ -91,8 +89,8 @@ public class SpPersonalFragment extends Fragment {
                 final PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, focusable);
                 TextView msg = popupView.findViewById(R.id.sp_pw_id);
                 if(msg != null) {
-                    Log.e("SpPersonalFragment", msg.toString());
-                    msg.setText(String.valueOf(StudentProfileActivity.studentId));
+                    Log.e("SpPersonal", msg.toString());
+                    msg.setText(String.valueOf(StudentProfile.studentId));
 
                     popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 
@@ -104,7 +102,7 @@ public class SpPersonalFragment extends Fragment {
                         }
                     });
                 }else{
-                    Log.e("SpPersonalFragment","msg is null");
+                    Log.e("SpPersonal","msg is null");
                 }
             }
         });

@@ -104,9 +104,9 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
             if(recyclerView != null) {
                 int itemPosition = recyclerView.getChildLayoutPosition(v);
                 Student item = listItems.get(itemPosition);
-                Intent intent = new Intent(context, StudentProfileActivity.class);
+                Intent intent = new Intent(context, StudentProfile.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra(StudentsListFragment.STUDENT_ID, item.getId());
+                intent.putExtra(StudentsList.STUDENT_ID, item.getId());
                 context.startActivity(intent);
             }else{
                 Log.e("StudentsListAdpater","recycler view is empty");

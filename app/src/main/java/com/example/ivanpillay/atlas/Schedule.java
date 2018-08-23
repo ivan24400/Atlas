@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ScheduleFragment extends Fragment {
+public class Schedule extends Fragment {
 
     @Nullable
     @Override

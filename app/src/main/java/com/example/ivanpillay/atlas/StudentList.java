@@ -19,7 +19,7 @@ import com.example.ivanpillay.atlas.model.Student;
 
 import java.util.ArrayList;
 
-public class StudentListActivity extends ListActivity {
+public class StudentList extends ListActivity {
 
     public static final String STUDENT_ID = "com.example.ip.atlas.sid";
 
@@ -48,7 +48,7 @@ public class StudentListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Student student = (Student)l.getItemAtPosition(position);
-        Intent intent = new Intent(StudentListActivity.this,StudentProfileActivity.class);
+        Intent intent = new Intent(StudentList.this,StudentProfile.class);
         intent.putExtra(STUDENT_ID,student.getId());
         startActivity(intent);
     }

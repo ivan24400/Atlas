@@ -24,14 +24,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StudentsListFragment extends Fragment {
+public class StudentsList extends Fragment {
 
     public static final String STUDENT_ID = "com.example.ip.atlas.sid";
     private MyRecyclerView recyclerView;
     private ProgressBar progressBar;
 
 
-    public StudentsListFragment(){}
+    public StudentsList(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

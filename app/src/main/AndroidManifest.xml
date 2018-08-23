@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,20 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserActivity" android:exported="true"/>
+        <activity android:name=".User" android:exported="true"/>
         <activity
-            android:name=".StudentListActivity"
+            android:name=".StudentList"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".StudentProfileActivity"
+            android:name=".StudentProfile"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ScheduleFragment"
+            android:name=".Schedule"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".StudentsFragment"
+            android:name=".Students"
             android:theme="@style/AppTheme" />
-        <activity android:name=".AppbarActivity" />
+        <activity android:name=".Appbar" />
     </application>
 
 </manifest>

@@ -4,15 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class StudentsFragment extends Fragment {
+public class Students extends Fragment {
 
-    public static StudentsFragment newInstance(){
-        StudentsFragment fragment = new StudentsFragment();
+    public static Students newInstance(){
+        Students fragment = new Students();
         return fragment;
     }
 
